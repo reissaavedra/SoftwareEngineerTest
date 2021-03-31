@@ -11,11 +11,8 @@ public class ES002 {
     }
 
     public ArrayList<Integer> solve(){
-//        ArrayList<Integer> arrayInputedValues = CompletedArray.solve(CompletedArray.fill0(parameter, CompletedArray.getLargest(parameter)));
         HeapSortedArray heapSortedArray = new HeapSortedArray(parameter);
         ArrayList<Integer> arrayInputedValues = CompletedArray.solve((ArrayList<Integer>) heapSortedArray.getArray());
-
-//        HeapSortedArray heapSortedArray = new HeapSortedArray(parameter);
         return arrayInputedValues;
     }
 }

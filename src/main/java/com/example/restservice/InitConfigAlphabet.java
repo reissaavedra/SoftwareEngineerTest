@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class InitConfigAlphabet {
     @Bean
-    public Alphabet alphabet() {
+    public Alphabet alphabet(){
         Alphabet alphabet = new Alphabet();
         String charsAlphabet = "abcdefghijklmnñopqrstuvwxyz";
         for (int i = 0, len = charsAlphabet.length(); i < len; i++) {
