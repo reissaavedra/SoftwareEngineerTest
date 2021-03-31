@@ -2,6 +2,7 @@ package com.example.restservice;
 
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -22,34 +23,13 @@ public class AppController {
 
 	@PostMapping("/es001")
 	public ResponseFormat es001(@RequestParam(value = "param1") String param1) {
-//		CharacterIterator iterator = new StringCharacterIterator(param1);
-//		while (iterator.current() != CharacterIterator.DONE){
-//			System.out.print(iterator.current());
-//			iterator.next();
-//		}
-		StringBuilder sb = new StringBuilder();
-		LinkedHashMap<String, String> list_alphabet = alphabet.getAlphabet();
-		for(int i=0, len=param1.length(); i<len; i++) {
-			char c = param1.charAt(i);
-			String a = list_alphabet.get(String.valueOf(Character.toLowerCase(c)));
-			if(a == null){
-				sb.append(c);
-			}else{
-				if(!Character.isUpperCase(c)){
-					sb.append(a);
-				}else{
-					sb.append(a.toUpperCase());
-				}
-			}
-		}
-		return new ResponseFormat(counter.incrementAndGet(), String.valueOf(sb));
+		ES001 es001 = new ES001(param1, alphabet);
+		return new ResponseFormat(counter.incrementAndGet(), es001.solve());
 	}
 
 	@PostMapping("/es002")
-	public ResponseFormat es002(@RequestParam(value = "values") List<Integer> param1) {
-		HeapSortedArray heapSortedArray = new HeapSortedArray(param1);
-//		CompletedArray.solve(heapSortedArray.getArray().toArray());
-		return new ResponseFormat(counter.incrementAndGet(), Arrays.toString(heapSortedArray.getArray().toArray()));
+	public ResponseFormat es002(@RequestParam(value = "values") ArrayList<Integer> param1) {
+		ES002 es002 = new ES002(param1);
+		return new ResponseFormat(counter.incrementAndGet(), String.valueOf(es002.solve()));
 	}
-
 }
