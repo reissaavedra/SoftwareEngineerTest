@@ -60,15 +60,4 @@ public class AppControllerTests {
 		makeTest(path, param, "2,4,1,8", "[1, 2, 3, 4, 5, 6, 7, 8]");
 		makeTest(path, param, "4,2,9", "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
 	}
-
-//	@Test
-//	public void testES003() throws Exception {
-//		this.mockMvc.perform(post("/es003").param("value", "1"))
-//				.andDo(print()).andExpect(status().isOk())
-//				.andExpect(jsonPath("$.content").value("1.0"));
-//
-//		this.mockMvc.perform(post("/es003").param("value", "10.50"))
-//				.andDo(print()).andExpect(status().isOk())
-//				.andExpect(jsonPath("$.content").value("10.5"));
-//	}
 }
